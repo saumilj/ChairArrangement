@@ -1,3 +1,20 @@
+/* Since it is important for our implementation to get the images of chairs loaded on browser before any further
+ * execution of action, use of '$(document).ready' is avoided. 
+ */
+
+window.onload = init;
+
+function init() {
+	var div = document.getElementById('c1');
+	ev = document.getElementById('pool');
+	for (var i = 0; i < 10; i++) {
+		clone = div.cloneNode(true);
+		clone.id = 'c' + i;
+		clone.hidden = false;
+		ev.appendChild(clone);
+	}
+}
+
 function allowDrop(ev) {
 	ev.preventDefault();
 }
@@ -18,20 +35,6 @@ function dropParent(ev) {
 	ev.target.parentNode.appendChild(document.getElementById(data));
 }
 
-function init() {
-	var div = document.getElementById('c1');
-	ev = document.getElementById('pool');
-	for (var i = 0; i < 10; i++) {
-		clone = div.cloneNode(true);
-		clone.id = 'c' + i;
-		clone.hidden = false;
-		ev.appendChild(clone);
-	}
-
-}
-
-window.onload = init;
-
 function redr() {
 	clearRoom('pool');
 	clearRoom('room1');
@@ -47,7 +50,6 @@ function redr() {
 		clone.hidden = false;
 		ev.appendChild(clone);
 	}
-
 	return false;
 }
 
@@ -67,10 +69,8 @@ function roomData(rId) {
 		if (children[child].id != null)
 			a.push({[children[child].id] : rId});
 	}
-
 	return a;
 }
-
 
 function callServ() {
 	a = {};
@@ -84,10 +84,13 @@ function callServ() {
 
 	$.ajax({
 		type : "POST",
+		
 		// the url where you want to sent the data to
 		url : 'http://localhost:8080/ChairArrangement/RequestHandler',
-		dataType : 'json',
+		
+		dataType : 'json',	
 		async : false,
+		
 		// json object to sent to the url
 		data : JSON.stringify(a)
 	})

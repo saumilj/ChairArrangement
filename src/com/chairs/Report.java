@@ -42,8 +42,8 @@ public class Report extends HttpServlet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		String q = "select floor, room, chair from floorplan where floor=?";
-		PreparedStatement st = conn.prepareStatement(q);
+		String query = "select floor, room, chair from floorplan where floor=?";
+		PreparedStatement st = conn.prepareStatement(query);
 		st.setString(1, floor);
 		ResultSet rs = st.executeQuery();
 		HashMap<String, HashSet<String>> hm = new HashMap<>();

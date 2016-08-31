@@ -23,7 +23,7 @@ public class RequestHandler extends HttpServlet {
 		String requestData = getRequestString(request);
 		Parser p = new Parser();
 		try {
-			p.parseJsonAndInsert(requestData);
+			p.parseJson(requestData);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -32,8 +32,8 @@ public class RequestHandler extends HttpServlet {
 	private String getRequestString(HttpServletRequest request) throws IOException {
 		StringBuilder sb = new StringBuilder();
 		BufferedReader reader = request.getReader();
-		try {
-			String line;
+		String line;
+		try {		
 			while ((line = reader.readLine()) != null) {
 				sb.append(line).append('\n');
 			}
