@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" type="test/css" href="css/style.css">
+<script src="js/main.js"></script>
+<link href="//1.www.s81c.com/common/v18/css/www.css" rel="stylesheet" />
+<script src="//1.www.s81c.com/common/v18/js/www.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	
+</script>
+</head>
+<body>
+	<br>
+	<h1 id="ibm-pagetitle-h1" class="ibm-h1 ibm-light">Chair
+		Arrangements</h1>
+	<br>
+	<div id="txtLabel">
+		Number of chairs on floor <input type="text" name="chairs" id="chairs">
+		<input type="button" value="Spawn" id="btnSpawn"
+			class="ibm-btn-pri ibm-btn-blue-50" onclick="redr()"> <input
+			type="button" value="Generate Report" id="btnDone"
+			class="ibm-btn-pri ibm-btn-blue-50" onclick="callServ()"> <br>
+		<br>Select floor <select id="floorname">
+			<option value="First">First</option>
+			<option value="Second">Second</option>
+			<option value="Third">Third</option>
+			<option value="Fourth">Fourth</option>
+		</select>
+	</div>
+	<hr>
+	<br>
+	<br>
+	<div>
+		<div id="pool" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<div id="room1" ondrop="drop(event)" ondragover="allowDrop(event)"
+			class="room"></div>
+		<div id="room2" ondrop="drop(event)" ondragover="allowDrop(event)"
+			class="room"></div>
+		<div id="room3" ondrop="drop(event)" ondragover="allowDrop(event)"
+			class="room"></div>
+	</div>
+	<br>
+	<img id="c1" draggable="true" ondragstart="drag(event)" hidden="true"
+		src="images/Chair.png" ondrop="dropParent(event)">
+</body>
+</html>
