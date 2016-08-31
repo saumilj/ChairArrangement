@@ -13,8 +13,6 @@ function drop(ev) {
 }
 
 function dropParent(ev) {
-//	alert(ev.target.parentNode.id + ", " + ev.target.id);
-
 	ev.preventDefault();
 	var data = ev.dataTransfer.getData("text");
 	ev.target.parentNode.appendChild(document.getElementById(data));

@@ -11,10 +11,10 @@ import org.apache.tomcat.jdbc.pool.PoolProperties;
 public class ConnectionPool {
 
 	private static DataSource datasource;
-	public static String dbURL;// = "jdbc:mysql://localhost:3306/" + "chairs";
-	public static String driverClass;// = "com.mysql.jdbc.Driver";
-	public static String userName;// = "root";
-	public static String password;// = "admin";
+	public static String dbURL;
+	public static String driverClass;
+	public static String userName;
+	public static String password;
 	public static boolean jmx = true;
 	public static boolean testIdle = false;
 	public static boolean testBorrow = true;

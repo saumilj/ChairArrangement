@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Iterator;
 
 import org.json.JSONArray;
@@ -48,14 +47,11 @@ public class Parser {
 	}
 
 	public void insert(String floor, String room, String chair, Connection conn) throws SQLException {
-//		Connection conn = null;
-//		conn = ConnectionPool.getInstance().getConnection();
 		String q = "insert into floorplan (floor, room, chair) values (?,?,?)";
 		PreparedStatement st = conn.prepareStatement(q);
 		st.setString(1, floor);
 		st.setString(2, room);
 		st.setString(3, chair);
 		st.executeUpdate();
-//		conn.close();
 	}
 }

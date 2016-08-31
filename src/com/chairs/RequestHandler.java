@@ -10,17 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-/**
- * Servlet implementation class ChairsBackend
- */
 @WebServlet("/RequestHandler")
 public class RequestHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public RequestHandler() {
 		super();
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

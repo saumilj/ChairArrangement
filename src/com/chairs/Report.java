@@ -14,24 +14,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Report
- */
 @WebServlet("/Report")
 public class Report extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public Report() {
 		super();
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String[] floors = { "First", "Second", "Third", "Fourth" };
@@ -55,8 +45,6 @@ public class Report extends HttpServlet {
 		String q = "select floor, room, chair from floorplan where floor=?";
 		PreparedStatement st = conn.prepareStatement(q);
 		st.setString(1, floor);
-		
-//		System.out.println(q);
 		ResultSet rs = st.executeQuery();
 		HashMap<String, HashSet<String>> hm = new HashMap<>();
 		while (rs.next()) {
@@ -75,7 +63,7 @@ public class Report extends HttpServlet {
 			HashSet<String> hs = hm.get(key);
 			sb.append(key).append(" ").append(hs.toString().replace('[', ' ').replace(']', ' ')).append("\n");
 		}
-//		System.out.print("Result = " + sb.toString());
+
 		conn.close();
 		return sb.toString();
 	}
